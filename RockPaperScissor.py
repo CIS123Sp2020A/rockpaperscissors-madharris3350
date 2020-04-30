@@ -1,3 +1,26 @@
+#Madison Harris
+
+#Complete an algorithm for the Rock Paper Scissors GUI.
+#Be sure to detail inputs, outputs, widgets used, and any calculations needed
+
+#import tkinter
+
+#import random
+
+#create radio button labeled rock, paper, and scissors
+
+#create play and quit buttons
+
+#computer selects rock(0) paper(1) or scissors(2) 
+#display with user selection(message box)
+
+#create if/else statement around if the plaer wins or nnot attach the
+#text to tell their moves (message box)
+
+#rock beats scissors
+#paper beats rock
+#scissors beat paper
+
 import tkinter
 import tkinter.messagebox as box
 
@@ -21,12 +44,15 @@ class MyGUI:
         self.radioVar.set(1)
 
         # Create the Radiobutton widgets in the top_frame.
-        self.rb1 = tkinter.Radiobutton(self.radioFrame, text='Option 1', variable=self.radioVar, value='Option 1')
-        self.rb2 = tkinter.Radiobutton(self.radioFrame, text='Option 2', variable=self.radioVar, value='Option 2')
+        self.rb1 = tkinter.Radiobutton(self.radioFrame, text='Rock', variable=self.radioVar, value='Rock')
+        self.rb2 = tkinter.Radiobutton(self.radioFrame, text='Paper', variable=self.radioVar, value='Paper')
+        self.rb3 = tkinter.Radiobutton(self.radioFrame, text='Scissors', variable=self.radioVar, value='Scissors')
 
         # Pack the Radiobuttons.
         self.rb1.pack()
         self.rb2.pack()
+        self.rb3.pack()
+        
 
         # Set up buttons
         self.okButton = tkinter.Button(self.buttonFrame, text='OK', command=self.showOption)
@@ -44,6 +70,45 @@ class MyGUI:
         tkinter.mainloop()
 
     def showOption(self):
-        box.showinfo('Selection', 'You selected ' + self.radioVar.get())
+        import random
+        computer = random.randint(0,2)
+        if computer == 0:
+            computerOption = "Rock"
+        if computer == 1:
+            computerOption = "Paper"
+        if computer == 2:
+            computerOption = "Scissors"
+            
+        box.showinfo('Selection', 'You selected ' + self.radioVar.get() +
+                                    '\nComputer selected ' + computerOption)
+        
+
+#I couldnt figure out the second part
+##    def showWinner(self):
+##        winner = "none"
+##        if computerOption == "Rock" and self.radioVar == "Scissors":
+##        if computerOption == "Paper" and self.radioVar == "Rock":
+##        if computerOption == "Scissors" and self.radioVar == "Paper":
+##            
+##
+##        if computerOption == "Scissors" and self.radioVar == "Rock":
+##        if computerOption == "Rock" and self.radioVar == "Paper":
+##        if computerOption == "Paper" and self.radioVar == "Scissors":
+##
+##        if computerOption == "Rock" and self.radioVar == "Rock":
+##        if computerOption == "Paper" and self.radioVar == "Paper":
+##        if computerOption == "Scissors" and self.radioVar == "Scissors":
+            
+        
+            
+
+
+
+    #self.okButton = tkinter.Button(self.buttonFrame, text='OK', command=self.showOption)
+        
+       # if computerOption == "Rock" and self.radioVar == "Paper":
+            
+
+        
 
 demoGUI = MyGUI()
